@@ -4,14 +4,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 500px;
 }
 
-.tableContainer
-{
-  height: 400px;
-  overflow-y:auto;
-}
 
 .buttonOpenModal
 {

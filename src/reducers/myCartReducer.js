@@ -1,23 +1,8 @@
-import {ADD_TO_CART, TAKE_SANPHAM} from '../Actions';
+import {ADD_TO_CART, CLEAR_CART, TAKE_SANPHAM} from '../Actions';
 
 const initialState ={
     cart : [
-       {
-        _id: 2,
-        ten: 'Laptop ASUS',
-        hinh: 'https://fptshop.com.vn/Uploads/Originals/2021/3/3/637503832634005581_asus-vivobook-x515-print-bac-dd.jpg',
-        gia: 1000,
-        thue: 100, 
-        soLuong: 2,
-    } ,
-  {
-        _id: 5,
-        ten: 'Laptop DELL',
-        hinh: 'https://fptshop.com.vn/Uploads/Originals/2021/3/3/637503832634005581_asus-vivobook-x515-print-bac-dd.jpg',
-        gia: 1000,
-        thue: 100, 
-        soLuong: 3,
-    } 
+      
    ]
 }
 
@@ -46,6 +31,10 @@ export default (state = initialState, action) =>{
             }
         case TAKE_SANPHAM:
             return state
+        case CLEAR_CART:
+            return{
+                cart: []
+            }
         default:
             return state;
     }

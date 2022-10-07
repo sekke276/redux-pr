@@ -5,16 +5,18 @@ const initialState = {
 }
 
 export default (state = initialState, action) =>{
-    console.log('chay reducer don hang', action.payload)
     switch (action.type){
         case CREATE_NEW_DON_HANG:
             {
+                let newOrder = [...state.order,action.payload]
+                localStorage.setItem('order',JSON.stringify(newOrder))
                 return {
                     
-                    order: [...state.order, action.payload]
+                    order: newOrder
                 };
             }
         default: 
-            return state;
+              let order = (JSON.parse(localStorage.getItem('order')))
+                return order ? {order: order }: state
     }
 }

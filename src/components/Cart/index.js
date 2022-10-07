@@ -1,14 +1,20 @@
 import CartLine from "./CartLine";
 import {useDispatch, useSelector} from 'react-redux';
 import styles from './index.module.css';
-import { CREATE_NEW_DONG_DON_HANG, CREATE_NEW_DON_HANG } from "../../Actions";
+import { CLEAR_CART, CREATE_NEW_DONG_DON_HANG, CREATE_NEW_DON_HANG } from "../../Actions";
 
 export default function Cart()
 {
     const dispatch = useDispatch();
     const myCart = useSelector(state => state.myCartReducer.cart);
-    var tax = myCart[0].thue * myCart[0].soLuong
-    var preTax = myCart[0].gia * myCart[0].soLuong
+    var tax = 0;
+    var preTax =0;
+    if(myCart.length > 0)
+    {
+
+    
+     tax = myCart[0].thue * myCart[0].soLuong
+     preTax = myCart[0].gia * myCart[0].soLuong
     var newDongHang ={
         _id: myCart[0]._id,
         soLuong: myCart[0].soLuong,
@@ -33,7 +39,8 @@ export default function Cart()
         })
     }
     console.log('new dong hang',newDongHang)
-    const total = preTax + tax;
+}
+    const total = myCart.reduce((sum, curr) =>  sum+ ((parseInt(curr.gia) + curr.thue) * curr.soLuong),0);
     const handlePaymentButton = () =>{
         dispatch({
             type: CREATE_NEW_DON_HANG,
@@ -50,6 +57,10 @@ export default function Cart()
             type: CREATE_NEW_DONG_DON_HANG,
             payload: {newDongHang}
         })
+
+        dispatch({
+            type: CLEAR_CART
+        })
     }
 
     return(
@@ -57,7 +68,9 @@ export default function Cart()
 
         <table>
             <caption>My Cart</caption>
+        <div className={styles.tableContainer}>
             <thead>
+            
                 <tr>
                 <th>Hinh</th>
                 <th>Tên</th>
@@ -74,6 +87,7 @@ export default function Cart()
                         <CartLine product={item} key={index}/>)
                     }
             </tbody>
+        </div>
         </table>
         <div className={styles.paymentContainer}>
             <div className={styles.total}> Total: ${total}</div>

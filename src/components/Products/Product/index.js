@@ -16,7 +16,7 @@ export default function Product({product})
             dispatch({
                 type: ADD_TO_CART,
                 payload: {
-                    _id: product._id,
+                    _id: product.id,
                     ten: product.ten,
                     gia: product.gia,
                     thue: product.thue,

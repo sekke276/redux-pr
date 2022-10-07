@@ -5,13 +5,16 @@ const initialState = {
 }
 
 export default (state = initialState, action) =>{
-    console.log('chay reducer trong dong don hang', action.payload)
     switch (action.type) {
         case CREATE_NEW_DONG_DON_HANG:
+            let newDongDonHang =  state.dongDonHang.concat(action.payload.newDongHang) 
+            localStorage.setItem('dongDonHang',JSON.stringify(newDongDonHang))
             return {
-                dongDonHang: state.dongDonHang.concat(action.payload.newDongHang)
+                ...state.dongDonHang,
+                dongDonHang: newDongDonHang 
             };
         default:
-            return state;
+            let orders = (JSON.parse(localStorage.getItem('dongDonHang')))
+                return orders ? {dongDonHang: orders }: state;
     }
 }

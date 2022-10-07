@@ -6,6 +6,7 @@ import styles from './styles.module.css'
 export default function AddProductForm({setIsOpenModal})
 {
     const dispatch = useDispatch();
+
     const products = useSelector(state => state.sanPhamReducer.sanpham)
     console.log(products)
     const [name,setName] = useState('');
@@ -35,6 +36,7 @@ export default function AddProductForm({setIsOpenModal})
                 thue: tax,
             },
         })
+        
     }
     return(
 <div className={styles.background}>

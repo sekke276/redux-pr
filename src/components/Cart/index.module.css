@@ -1,5 +1,6 @@
 table {
   border-collapse: collapse;
+  
 }
 thead
 {
@@ -26,9 +27,11 @@ tbody tr:nth-child(even) {
   font-weight: 400;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: space-between;
+  height: 80vh;
   align-items: center;
 }
+
 
 .buttonPayment
 {
@@ -50,4 +53,10 @@ tbody tr:nth-child(even) {
 .total
 {
 font-size:30px;
+}
+
+.tableContainer
+{
+  overflow-y:scroll ;
+  height: 60vh;
 }
