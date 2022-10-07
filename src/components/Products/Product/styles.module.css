@@ -1,0 +1,17 @@
+th, td {
+  padding: 8px;
+  width: 150px;
+}
+.inputNumber
+{
+  font-size: 18px;
+  width: 110px;
+}
+
+.addToCartButton
+{
+    margin: 5px 0px;
+    font-size: 18px;
+    width: 120px;
+    height: 30px;
+}

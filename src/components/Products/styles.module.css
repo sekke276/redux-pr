@@ -1,0 +1,23 @@
+.container
+{
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.tableContainer
+{
+  height: 400px;
+  overflow-y:auto;
+}
+
+.buttonOpenModal
+{
+  align-self: flex-end;
+  margin: 10px;
+  width: 200px;
+  height: 40px;
+}
+
