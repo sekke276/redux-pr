@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css';
 import { ADD_TO_CART } from '../../../Actions';
 
-export default function Product({product})
+export default function Product({product, cart})
 {
     const[amount,setAmount] = useState(1);
     const dispatch = useDispatch();
-    const myCart = useSelector(state => state.myCartReducer.cart);
     const handleChangeAmount = (e) =>{
         setAmount(e.currentTarget.value);
     }
@@ -22,7 +21,7 @@ export default function Product({product})
                     thue: product.thue,
                     hinh: product.hinh,
                     soLuong: amount,
-                }
+                },
             })
         
     }
@@ -32,6 +31,7 @@ export default function Product({product})
                             <td>{product.ten}</td>
                             <td>$ {product.gia}</td>
                             <td>$ {product.thue}</td>
+                            <td>{product.soLuong}</td>
                             <td>
                                 <input onChange={(e)=>handleChangeAmount(e)} value={amount} type='number' className={styles.inputNumber}/>
                                 <button onClick={handleAddToCart} className={styles.addToCartButton}>Add To Cart</button>

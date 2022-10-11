@@ -1,2 +1,2 @@
-export const TAKE_SANPHAM = '6';
-export const CREATE_NEW_SANPHAM= '7';
+export const CREATE_SAN_PHAM_SUCCESS = 'CREATE_SAN_PHAM_SUCCESS';
+export const CREATE_NEW_SANPHAM= 'CREATE_NEW_SANPHAM';

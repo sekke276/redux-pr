@@ -7,10 +7,9 @@ const initialState = {
 export default (state = initialState, action) =>{
     switch (action.type) {
         case CREATE_NEW_DONG_DON_HANG:
-            let newDongDonHang =  state.dongDonHang.concat(action.payload.newDongHang) 
+            let newDongDonHang =  state.dongDonHang.concat(action.payload) 
             localStorage.setItem('dongDonHang',JSON.stringify(newDongDonHang))
             return {
-                ...state.dongDonHang,
                 dongDonHang: newDongDonHang 
             };
         default:

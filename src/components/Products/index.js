@@ -1,19 +1,32 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ADD_TO_CART } from "../../Actions";
+import {  useState } from "react";
+import {  useSelector } from "react-redux";
+
 import AddProductForm from "../AddProductForm";
 import Product from "./Product";
 import styles from './styles.module.css'
 
 export default function Products()
 {
-    const dispatch = useDispatch();
-
     const products = useSelector(state => state.sanPhamReducer.sanpham)
     const [isOpenModal,setIsOpenModal] = useState(false);
-    const myCart = useSelector(state => state.myCartReducer.cart);
-    console.log('my cart', myCart);
- 
+    const cart = useSelector(state => state.myCartReducer.cart);
+    const listProduct = products.map((product, index) => {
+        if(cart.find(item => item._id === product.id ))
+        {
+            let cartItem = cart.find(item => item._id === product.id )
+            return {
+                ...product,
+                soLuong: cartItem.soLuong
+            }
+        }
+        else
+        {
+            return{
+                ...product,
+                soLuong: 0
+            }
+        }
+    })
     return(
         <div className={styles.container}>
         <button className={styles.buttonOpenModal}
@@ -30,12 +43,13 @@ export default function Products()
                 <th>Tên</th>
                 <th>Giá</th>
                 <th>Thuế</th>
+                <th>Số Lượng</th>
                 <th> </th>
             </tr>
             </thead>
             <tbody>
             {
-                products.map((product,index) => 
+                listProduct.map((product,index) => 
                     <Product key={index} product={product} />)
             }
     </tbody>

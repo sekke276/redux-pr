@@ -5,7 +5,6 @@ import '../../styles/global.css';
 export default function DonHang()
 {
     const donHang = useSelector(state => state.donHangReducer.order);
-    console.log('donHang',donHang)
     return(
         <div className={styles.container}>
             <table>
@@ -16,6 +15,7 @@ export default function DonHang()
                     <td>Trước Thuế</td>
                     <td>Tổng Thuế</td>
                     <td>Tổng Tiền</td>
+                    <td> </td>
                 </thead>
                 <tbody>
                     {

@@ -1,4 +1,4 @@
-import {CREATE_NEW_SANPHAM} from '../Actions'
+import {CREATE_NEW_SANPHAM, CREATE_SAN_PHAM_SUCCESS} from '../Actions'
 const initialState = {
     sanpham : [{
         id: 1,
@@ -21,18 +21,16 @@ export default (state = initialState, action) => {
     {
         case CREATE_NEW_SANPHAM:
             {
-                let newSanPham = [...state.sanpham,action.payload]
-                localStorage.setItem('sanPham',JSON.stringify(newSanPham))
-                return {
-                    sanpham: newSanPham,
-                };
-                break;
-                
+                return {...state};
             }
+        case CREATE_SAN_PHAM_SUCCESS:
+            return{
+                    sanpham: action.payload
+                }
             default:
                 let products = (JSON.parse(localStorage.getItem('sanPham')))
                 return products ? {sanpham: products }: state
     }
-            return state;
+            
         }
 

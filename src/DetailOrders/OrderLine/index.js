@@ -2,7 +2,7 @@
 export default function OrderLine({order})
 {
     return(
-          <tr>
+        <tr>
             <td><img src={order.hinh} width={150} height={80}/></td>
             <td>{order.ten}</td>
             <td>${order.gia}</td>

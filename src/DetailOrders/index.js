@@ -1,19 +1,40 @@
-import { useDispatch, useSelector } from 'react-redux'
+
+import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom';
 import OrderLine from './OrderLine';
 import styles from './styles.module.css'
 
 export default function DetailOrders()
 {
+    let {id} = useParams();
     const product = useSelector(state => state.sanPhamReducer.sanpham);
-    console.log('product',product)
     const dongDonHang = useSelector(state => state.dongDonHangReducer.dongDonHang);
-    const products = product.map((item) => {
-        let dongHang = dongDonHang.find(donHang => donHang._id === item._id);
-        console.log('dongdon hang',dongDonHang)
-        return {...item,soLuong: dongHang.soLuong,
-        truocThue: dongHang.truocThue,
-        tongThue: dongHang.tongThue}
-    })
+    let products = [];
+    let filter = dongDonHang.filter(item => item._id === id)
+    if(filter.length > 1)
+    {
+    products = product.map(item => {
+            let dongHang = filter.find(dongHang =>  item.id === dongHang.item_id)
+            return{
+                ...item,
+                soLuong: dongHang.soLuong,
+                truocThue: dongHang.truocThue,
+                tongThue: dongHang.tongThue,
+            }
+        })
+    }
+    else
+    {
+        let findProduct = product.find(item => item.id === filter[0].item_id)
+        
+        products.push({...findProduct, 
+            soLuong: filter[0].soLuong,
+            truocThue: filter[0].truocThue,
+            tongThue: filter[0].tongThue})
+    }
+    console.log('products', products)
+
+    
     return(
         <div className={styles.container}>
             <div className={styles.tableContainer}>
@@ -31,8 +52,8 @@ export default function DetailOrders()
                     </thead>
                     <tbody>
                         {
-                            products.map(item => 
-                            <OrderLine order ={item}/>)
+                            
+                            products.map(item => <OrderLine order={item}/>)
                         }
                     </tbody>
                 </table>
