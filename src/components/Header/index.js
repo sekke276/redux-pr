@@ -6,7 +6,6 @@ export default function Header() {
             <Link to="/home">Home</Link>
             <Link to="/cart">Cart</Link>
             <Link to="/donhang">Don Hang</Link>
-            <Link to="/detailorders">Chi Tiet</Link>
         </div>
     )
 }

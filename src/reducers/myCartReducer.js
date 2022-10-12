@@ -1,7 +1,9 @@
-import {ADD_NEW_TO_CART, ADD_TO_CART, CLEAR_CART, TAKE_SANPHAM, UPDATE_PRODUCT} from '../Actions';
+import {ADD_NEW_TO_CART, ADD_TO_CART, CLEAR_CART,  UPDATE_PRODUCT} from '../Actions';
 
 const initialState ={
-    cart : []
+    cart : [
+    
+    ]
 }
 
 export default (state = initialState, action) =>{

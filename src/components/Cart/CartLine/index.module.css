@@ -1,4 +1,38 @@
-th, td {
-  padding: 8px;
-  width: 150px;
+.container
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+  height: 140px;
+  background-color: #f0f8ff;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px 0px;
+  box-sizing: border-box;
+}
+
+.container:hover
+{
+  box-shadow: 4px 7px #888888;
+}
+.imageContainer
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-right: 1px solid black;
+  padding: 10px;
+  width: 40%;
+}
+
+.image
+{
+  margin-right: 10px;
+}
+
+.calculate
+{
+  width: 50%;
+  max-width: 300px;
 }

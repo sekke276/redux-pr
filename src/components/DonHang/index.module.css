@@ -11,6 +11,54 @@ align-items: center;
 
 .tableContainer
 {
-  overflow-y:scroll ;
-  height: 70vh;
+  
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.tableScroll
+{
+    /*width:100%; */
+  empty-cells: show;
+  /* Decoration */
+  border-spacing: 0;
+  overflow-x: hidden;
+  border: 1px solid black;
+}
+
+.tableScroll thead
+{
+  position:relative;
+  display: block;
+  width:100%;
+  overflow-y: scroll;
+}
+
+.tableScroll tbody
+{
+      /* Position */
+
+display: block;
+  width:100%; 
+  overflow-y:scroll;
+  overflow-x: hidden;
+  /* Decoration */
+  border-top: 1px solid rgba(0,0,0,0.2);
+}
+
+.tableScroll tr{
+  
+  display:flex;
+}
+
+
+.tableScroll td,.tableScroll th{
+  flex-basis:100%;
+  flex-grow:2;
+  display: block;
+  padding: 1rem;
+}
+
+.bodyscreen
+{
+    max-height: 60vh;
 }

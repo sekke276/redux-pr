@@ -10,7 +10,7 @@ export default function Products()
     const products = useSelector(state => state.sanPhamReducer.sanpham)
     const [isOpenModal,setIsOpenModal] = useState(false);
     const cart = useSelector(state => state.myCartReducer.cart);
-    const listProduct = products.map((product, index) => {
+    const listProduct = products.map((product) => {
         if(cart.find(item => item._id === product.id ))
         {
             let cartItem = cart.find(item => item._id === product.id )
@@ -29,31 +29,17 @@ export default function Products()
     })
     return(
         <div className={styles.container}>
+        <div className={styles.buttonContainer}>
         <button className={styles.buttonOpenModal}
         onClick={()=> setIsOpenModal(!isOpenModal)}
         >Thêm
         </button>
+        </div>
         <div className={styles.tableContainer}>
-
-        <table>
-            <caption>Danh sách sản phẩm</caption>
-            <thead>
-            <tr>
-                <th>Hình</th>
-                <th>Tên</th>
-                <th>Giá</th>
-                <th>Thuế</th>
-                <th>Số Lượng</th>
-                <th> </th>
-            </tr>
-            </thead>
-            <tbody>
             {
-                listProduct.map((product,index) => 
-                    <Product key={index} product={product} />)
+                listProduct.map(item => 
+                <Product product={item} key={item.id}/>)
             }
-    </tbody>
-        </table>
         </div>
         {
             isOpenModal && <AddProductForm setIsOpenModal={setIsOpenModal} />

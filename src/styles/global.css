@@ -1,10 +1,6 @@
 .App
 {
-  display: flex;
   width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-size: 20px;
 }
 
@@ -13,16 +9,19 @@ table {
   height: 100px;
   overflow-y: scroll;
   overflow: scroll;
+
 }
 thead
 {
-  background-color:  #98c379;
+  background-color:  black;
+  color: white;
+  
 }
 th, td {
   padding: 8px;
   width: 150px;
   text-align: center;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 .cell-highlight {
@@ -30,14 +29,8 @@ th, td {
   font-weight: bold;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: #fff;
-}
 
-tbody tr:nth-child(even) {
-  background-color:  #3a996b;
-}
-
+table tr:hover {background-color: #fad7d788;}
 caption
 {
   font-size: 25px;

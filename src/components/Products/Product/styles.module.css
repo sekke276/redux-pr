@@ -5,7 +5,7 @@ th, td {
 .inputNumber
 {
   font-size: 18px;
-  width: 110px;
+  width: 40%;
 }
 
 .addToCartButton
@@ -15,3 +15,108 @@ th, td {
     width: 120px;
     height: 30px;
 }
+.addToCartButton:hover
+{
+  box-shadow: 5px 2px #888888 ;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.container
+{
+  width: 23%;
+  box-sizing: border-box;
+  background-color: aliceblue;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 2px 5px #888888;
+  margin: 10px;
+  height: 400px;
+}
+.container:hover
+{
+  box-shadow: 10px 9px #888888;
+  border: 2px solid black;
+}
+.header
+{
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px dotted black;
+  border-top-left-radius: 10px;
+  box-sizing: border-box;
+  border-top-right-radius: 10px;
+}
+.imgContainer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.image
+{
+  border-radius: 10px;
+  width: 100%;
+}
+
+.content
+{
+  box-sizing: border-box;
+  
+}
+
+.addToCart
+{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.name
+{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 23px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 1px #888888;
+  
+}
+
+.price{
+  margin: 10px 5px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.amountContainer
+{
+  text-align: center;
+  height: 40px;
+
+  color: white;
+}
+
+.inform
+{
+  margin: 0px;
+  color: white;
+}
+
+.amountActive
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 40px;
+  color: white;
+  text-align: center;
+}
+

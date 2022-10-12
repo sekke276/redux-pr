@@ -23,7 +23,6 @@ export default function Cart()
         truocThue: myCart[0].gia * myCart[0].soLuong,
         tongThue: myCart[0].thue * myCart[0].soLuong,
     }
-    console.log('new dong hang if 1', newDongHang)
     if(myCart.length > 1)
     {
         tax = myCart.reduce((pre,next) =>
@@ -54,29 +53,14 @@ export default function Cart()
     return(
         <div className={styles.container}>
 
-        <table>
-            <caption>My Cart</caption>
-        <div className={styles.tableContainer}>
-            <thead>
-            
-                <tr>
-                <th>Hinh</th>
-                <th>Tên</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Thành Tiền</th>
-                <th>Trước Thuế</th>
-                <th>Tổng Thuế</th>
-                </tr>
-            </thead>
-            <tbody>
+            <div className={styles.tableContainer}>
+            <div className={styles.tableHeader}></div>
                 {
                     myCart.map((item, index) => 
                         <CartLine product={item} key={index}/>)
                     }
-            </tbody>
-        </div>
-        </table>
+            </div>
+           
         <div className={styles.paymentContainer}>
             <div className={styles.total}> Total: ${total}</div>
             <button className={styles.buttonPayment} onClick={handlePaymentButton}>Thanh Toán</button>

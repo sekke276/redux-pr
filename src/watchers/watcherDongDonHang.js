@@ -1,4 +1,4 @@
-import {delay, put, takeLeading, select} from 'redux-saga/effects';
+import { put, takeLeading, select} from 'redux-saga/effects';
 import { CREATE_NEW_DONG_DON_HANG, CREATE_NEW_DON_HANG, CLEAR_CART } from '../Actions';
 
 export default function* watcherDongDongHang()

@@ -19,6 +19,8 @@
     border-bottom-right-radius: 10px;
     border-radius: 10px;
     background-color: white;
+    border: 2px solid black;
+    font-size: 25px;
 }
 .content
 {
@@ -41,7 +43,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 60px;
-    background-color: #3a996b;
+    background-color: black;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     display: flex;
@@ -50,8 +52,18 @@
 }
 .button
 {
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 20px;
+    width: 200px;
+    border: 1px black solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.button:hover
+{
+    padding: 7px;
+    box-sizing: border-box;
+    border: 2px black solid;
 }
 .xbutton
 {
@@ -65,7 +77,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    text-shadow: 1px 1px black;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -76,4 +88,15 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.errorMessage
+{
+    margin: 0px;
+    height: 50px;
+    font-size: 15px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

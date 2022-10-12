@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import styles from './styles.module.css';
 import { ADD_TO_CART } from '../../../Actions';
+import {BsFillCartPlusFill} from 'react-icons/bs'
 
 export default function Product({product, cart})
 {
@@ -11,7 +12,6 @@ export default function Product({product, cart})
         setAmount(e.currentTarget.value);
     }
     const handleAddToCart = () =>{
-        
             dispatch({
                 type: ADD_TO_CART,
                 payload: {
@@ -26,15 +26,43 @@ export default function Product({product, cart})
         
     }
      return(
-                        <tr>
-                            <td><img src={product.hinh} width={150} height={80}/></td>
-                            <td>{product.ten}</td>
-                            <td>$ {product.gia}</td>
-                            <td>$ {product.thue}</td>
-                            <td>{product.soLuong}</td>
-                            <td>
-                                <input onChange={(e)=>handleChangeAmount(e)} value={amount} type='number' className={styles.inputNumber}/>
-                                <button onClick={handleAddToCart} className={styles.addToCartButton}>Add To Cart</button>
-                            </td>
-                        </tr>)
+        <div className={styles.container}>
+        <div className={styles.header}>
+            <div className={styles.imgContainer}>
+                <img className={styles.image} 
+                src={product.hinh} 
+                width={250} 
+                height={150}/> 
+            </div>
+        </div>
+            <div className={styles.content}>
+                <p className={styles.name}>{product.ten}</p>
+                <p className={styles.price}>Giá:<strong> ${product.gia}</strong></p>
+                <p className={styles.price}>Thuế:<strong> ${product.thue} </strong></p>
+                {
+                    product.soLuong > 0 ?
+                    <div className={styles.amountActive}>
+                    <p className={styles.inform}>Đã thêm vào giỏ: {product.soLuong}</p>
+                    </div>
+                    : 
+                    <div className={styles.amountContainer}>
+                    </div>
+                }
+                <div className={styles.addToCart}>
+                    <input type="number" 
+                    className={styles.inputNumber}
+                    value={amount}
+                    onChange={handleChangeAmount}
+                    onKeyPress={(e) => validate(e)}
+                    />
+                    <button onClick={handleAddToCart} className={styles.addToCartButton} ><BsFillCartPlusFill/></button>
+                </div>
+            </div>
+        </div>
+        )
+}const validate = (e) =>{
+    if(!/[0-9]/.test(e.key))
+    {
+        e.preventDefault();
+    }
 }

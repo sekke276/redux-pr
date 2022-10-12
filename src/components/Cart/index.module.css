@@ -1,34 +1,12 @@
-table {
-  border-collapse: collapse;
-  
-}
-thead
-{
-  background-color:  #3a996b;
-}
-th, td {
-  padding: 8px;
-  width: 150px;
-}
-.cell-highlight {
-  background-color: gold;
-  font-weight: bold;
-}
 
-tbody tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-tbody tr:nth-child(even) {
-  background-color:  #3a996b;
-}
 .container
 {
+  margin: 10px;
+  padding: 10px;
   font-weight: 400;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-  height: 80vh;
+  justify-content: center;
   align-items: center;
 }
 
@@ -39,6 +17,15 @@ tbody tr:nth-child(even) {
   width: 300px;
   height: 60px;
   justify-self: flex-end;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 2px 2px black;
+}
+
+.buttonPayment:hover
+{
+  border: 2px solid black;
+  box-shadow: 1px 1px #88888888;
 }
 
 .paymentContainer
@@ -57,6 +44,22 @@ font-size:30px;
 
 .tableContainer
 {
-  overflow-y:scroll ;
-  height: 60vh;
+  width: 90%;
+  padding: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  border: 2px solid black;
+  box-shadow: 5px 10px #88888888;
+  overflow-y:scroll;
+  height: 63vh;
+}
+.tableContainer::-webkit-scrollbar {
+    display:none;
+}
+.tableHeader
+{
+  width: 100%;
+  height: 50px;
 }

@@ -1,5 +1,5 @@
-import { delay, put, select, take, takeEvery, takeLatest, takeLeading } from 'redux-saga/effects';
-import { CREATE_NEW_SANPHAM, CREATE_SAN_PHAM_SUCCESS, TAKE_SANPHAM } from '../Actions';
+import {  put, select, takeLeading } from 'redux-saga/effects';
+import { CREATE_NEW_SANPHAM, CREATE_SAN_PHAM_SUCCESS, } from '../Actions';
 export default function* watcherSanPham()
 {
     yield takeLeading(CREATE_NEW_SANPHAM,workerAddProduct);

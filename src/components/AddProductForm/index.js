@@ -11,6 +11,7 @@ export default function AddProductForm({setIsOpenModal})
     const [imageLink, setImageLink] = useState('');
     const [price,setPrice] = useState(0);
     const[tax, setTax] = useState(0);
+    const[errorMessage,setErrorMessage] = useState('');
     const handleSetName = (e) =>{
         setName(e.currentTarget.value);
     }
@@ -25,9 +26,8 @@ export default function AddProductForm({setIsOpenModal})
         setTax(e.currentTarget.value);
     }
     const handleOnClickAdd = () =>{
-        if(isEmpty)
+        if(isEmpty(name))
         {
-
             if(isImgLink(imageLink))
             {
                 if(isPrice(+price))
@@ -42,13 +42,21 @@ export default function AddProductForm({setIsOpenModal})
                         thue: +tax,
                     },
                 })
+                setIsOpenModal(false);
+                }
+                else
+                {
+                    setErrorMessage('Giá phải lớn hơn 0')
+                }
+            }
+            else
+            {
+                setErrorMessage('Ảnh không hợp lệ')
             }
         }
-        console.log('sai roi')
-    }
         else
         {
-            console.log('sai hinh roi')
+            setErrorMessage('Vui lòng điền lại tên!!!')
         }
         
     }
@@ -94,6 +102,11 @@ export default function AddProductForm({setIsOpenModal})
         onKeyPress={(e) => validate(e)}
          />
         </div>
+        {
+            errorMessage !== '' ?
+            <p className={styles.errorMessage}>{errorMessage}</p>
+            : <div className={styles.errorMessage}></div>
+        }
         <button onClick={handleOnClickAdd} 
         id='tax'
         className={styles.button}>
@@ -123,5 +136,5 @@ function isPrice(price)
 
 function isEmpty(string)
 {
-    return string.trim().length > 0
+    return string.trim().length
 }
